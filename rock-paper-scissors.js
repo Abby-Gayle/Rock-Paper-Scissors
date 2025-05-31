@@ -21,4 +21,17 @@ function getComputerChoice(){
     }
 }
 
-getComputerChoice();
+//how to get a human choice now
+//user will need instruction to enter (rock, paper, or scissors)
+function getHumanChoice(){
+    //might make parameter a word
+    word = prompt("Enter rock, paper, scissors: ");
+    word = word.toLowerCase(); //this gets the users input and makes it lowercase always
+    console.log(word);
+}
+
+//variables to keep track of player scores
+///global scope variables 
+humanScore = 0;
+computerScore = 0;
+
