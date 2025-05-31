@@ -4,6 +4,11 @@
 //3.the user will either win lose or get a tie
 //4.each time the player playes one of the scores will go up wiether win lose or tie
 
+    //variables to keep track of player scores
+    //global scope variables 
+    humanScore = 0;
+    computerScore = 0;
+
 //this function is for the computer choice
 function getComputerChoice(){
     //make rock, paper, scissors = 1, 2, 3
@@ -11,15 +16,12 @@ function getComputerChoice(){
     switch (randomNumber){
         case 1:
             word = "rock";
-            console.log(word);
             return word;
         case 2:
             word = "paper";
-            console.log(word);
             return word;
         case 3:
             word = "scissors";
-            console.log(word);
             return word;
     }
 }
@@ -34,11 +36,6 @@ function getHumanChoice(){
     
 }
 
-//variables to keep track of player scores
-///global scope variables 
-humanScore = 0;
-computerScore = 0;
-
 //this a function for a round takes two parameters user input and cpu input (LETS PLAY)
 function playRound(humanChoice, computerChoice){
     //rock beats scissors
@@ -49,50 +46,66 @@ function playRound(humanChoice, computerChoice){
             console.log(`You chose: ${humanChoice} Opponent chose: ${computerChoice}`);
             if(computerChoice == "rock"){
                 console.log("Tie Hmm... seems like no one wins");
+                console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             else if(computerChoice == "paper"){
                 console.log("Winner winner chicken dinner");
                 humanScore +=1;//increases human score by one
+                console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             else{
                 console.log("You Lost obviously");
                 computerChoice+=1; //increases computer score by one
+                console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             break;
         case "paper":
             if(computerChoice == "paper"){
                 console.log("Tie Hmm... seems like no one wins");
+                console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             else if(computerChoice == "rock"){
                 console.log("Winner winner chicken dinner");
                 humanScore +=1;//increases human score by one
+                console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             else{
                 console.log("You Lost obviously");
                 computerChoice+=1; //increases computer score by one
+                console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             break;
         case "scissors":
              if(computerChoice == "scissors"){
                 console.log("Tie Hmm... seems like no one wins");
+                console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             else if(computerChoice == "paper"){
                 console.log("Winner winner chicken dinner");
                 humanScore +=1;//increases human score by one
+                console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             else{
                 console.log("You Lost obviously");
-                computerChoice+=1; //increases computer score by one
+                computerScore+=1; //increases computer score by one
+                console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             break;
     }
-    //paper beats rock
-    //scissors beats paper
 
 }
+
 //variables that get the user and computer input for arguments
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);   //calls the function playRound to play a game
 
+
+function playGame() {//playGame function
+    //we will play five rounds
+    i = 0; //this is the starting index for the loop
+    for( ; i < 6; i++){ //this makes iterate five times
+        playRound(humanSelection, computerSelection);   //calls the function playRound to play a round of the game  
+    }
+}
+playGame();
