@@ -10,14 +10,17 @@ function getComputerChoice(){
     let randomNumber = Math.floor(Math.random() * 3) + 1; //math.floor rounds down the result and math.random makes a number between 0 and 1 (never exactly zero or one)
     switch (randomNumber){
         case 1:
-            console.log("rock");
-            break;
+            word = "rock";
+            console.log(word);
+            return word;
         case 2:
-            console.log("paper");
-            break;
+            word = "paper";
+            console.log(word);
+            return word;
         case 3:
-            console.log("scissors");
-            break;
+            word = "scissors";
+            console.log(word);
+            return word;
     }
 }
 
@@ -27,6 +30,7 @@ function getHumanChoice(){
     //might make parameter a word
     word = prompt("Enter rock, paper, scissors: ");
     word = word.toLowerCase(); //this gets the users input and makes it lowercase always
+    return word;
     
 }
 
