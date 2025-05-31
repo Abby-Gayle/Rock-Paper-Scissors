@@ -10,13 +10,13 @@ function getComputerChoice(){
     let randomNumber = Math.floor(Math.random() * 3) + 1; //math.floor rounds down the result and math.random makes a number between 0 and 1 (never exactly zero or one)
     switch (randomNumber){
         case 1:
-            console.log("ROCK");
+            console.log("rock");
             break;
         case 2:
-            console.log("PAPER");
+            console.log("paper");
             break;
         case 3:
-            console.log("SCISSORS");
+            console.log("scissors");
             break;
     }
 }
@@ -27,11 +27,44 @@ function getHumanChoice(){
     //might make parameter a word
     word = prompt("Enter rock, paper, scissors: ");
     word = word.toLowerCase(); //this gets the users input and makes it lowercase always
-    console.log(word);
+    
 }
 
 //variables to keep track of player scores
 ///global scope variables 
 humanScore = 0;
 computerScore = 0;
+
+//this a function for a round takes two parameters user input and cpu input (LETS PLAY)
+function playRound(humanChoice, computerChoice){
+    //rock beats scissors
+    switch(humanChoice){
+        case "rock":
+            console.log(`You chose: ${humanChoice} Opponent chose: ${computerChoice}`);
+            if(computerChoice == "rock"){
+                console.log("Tie Hmm... seems like no one wins");
+            }
+            else if(computerChoice == "paper"){
+                console.log("Winner winner chicken dinner");
+                humanScore +=1;//increases human score by one
+            }
+            else{
+                console.log("You Lost obviously");
+                computerChoice+=1; //increases computer score by one
+            }
+            break;
+        case "paper":
+            break;
+        case "Scissors":
+            break;
+    }
+    //paper beats rock
+    //scissors beats paper
+
+}
+//variables that get the user and computer input for arguments
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);   //calls the function playRound to play a game
 
