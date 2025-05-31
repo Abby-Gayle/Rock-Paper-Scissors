@@ -42,6 +42,8 @@ computerScore = 0;
 //this a function for a round takes two parameters user input and cpu input (LETS PLAY)
 function playRound(humanChoice, computerChoice){
     //rock beats scissors
+    //paper beats rock
+    //scissors beats paper
     switch(humanChoice){
         case "rock":
             console.log(`You chose: ${humanChoice} Opponent chose: ${computerChoice}`);
@@ -58,8 +60,30 @@ function playRound(humanChoice, computerChoice){
             }
             break;
         case "paper":
+            if(computerChoice == "paper"){
+                console.log("Tie Hmm... seems like no one wins");
+            }
+            else if(computerChoice == "rock"){
+                console.log("Winner winner chicken dinner");
+                humanScore +=1;//increases human score by one
+            }
+            else{
+                console.log("You Lost obviously");
+                computerChoice+=1; //increases computer score by one
+            }
             break;
-        case "Scissors":
+        case "scissors":
+             if(computerChoice == "scissors"){
+                console.log("Tie Hmm... seems like no one wins");
+            }
+            else if(computerChoice == "paper"){
+                console.log("Winner winner chicken dinner");
+                humanScore +=1;//increases human score by one
+            }
+            else{
+                console.log("You Lost obviously");
+                computerChoice+=1; //increases computer score by one
+            }
             break;
     }
     //paper beats rock
