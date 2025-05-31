@@ -49,17 +49,18 @@ function playRound(humanChoice, computerChoice){
                 console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             else if(computerChoice == "paper"){
-                console.log("Winner winner chicken dinner");
-                humanScore +=1;//increases human score by one
+                console.log("You lose.");
+                computerScore +=1;//increases cpu score by one
                 console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             else{
-                console.log("You Lost obviously");
-                computerChoice+=1; //increases computer score by one
+                console.log("Winner");
+                humanChoice+=1; //increases human score by one
                 console.log(`You: ${humanScore} CPU: ${computerScore}`);
             }
             break;
         case "paper":
+             console.log(`You chose: ${humanChoice} Opponent chose: ${computerChoice}`);
             if(computerChoice == "paper"){
                 console.log("Tie Hmm... seems like no one wins");
                 console.log(`You: ${humanScore} CPU: ${computerScore}`);
@@ -76,6 +77,7 @@ function playRound(humanChoice, computerChoice){
             }
             break;
         case "scissors":
+            console.log(`You chose: ${humanChoice} Opponent chose: ${computerChoice}`);
              if(computerChoice == "scissors"){
                 console.log("Tie Hmm... seems like no one wins");
                 console.log(`You: ${humanScore} CPU: ${computerScore}`);
@@ -96,7 +98,7 @@ function playRound(humanChoice, computerChoice){
 }
 
 //variables that get the user and computer input for arguments
-const humanSelection = getHumanChoice();
+
 const computerSelection = getComputerChoice();
 
 
@@ -104,8 +106,9 @@ const computerSelection = getComputerChoice();
 function playGame() {//playGame function
     //we will play five rounds
     i = 0; //this is the starting index for the loop
-    for( ; i < 6; i++){ //this makes iterate five times
-        playRound(humanSelection, computerSelection);   //calls the function playRound to play a round of the game  
+    for( ; i < 5; i++){ //this makes iterate five times
+        let humanSelection = getHumanChoice();        
+        playRound(humanSelection, computerSelection);   //calls the function playRound to play a round of the game 
     }
 }
 playGame();
